@@ -260,6 +260,7 @@ MonoBehaviour:
   speed: 10
   gravity: 5
   HorizontalInput: HorizontalAD
+  Jump: 119
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,6 +574,7 @@ MonoBehaviour:
   speed: 8
   gravity: 10
   HorizontalInput: HorizontalArrowKeys
+  Jump: 273
 --- !u!1 &1115094415
 GameObject:
   m_ObjectHideFlags: 0

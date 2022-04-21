@@ -8,6 +8,9 @@ public class PlayerCharacters : MonoBehaviour
     public int gravity;
 
     public string HorizontalInput;
+
+    public KeyCode Jump;
+    private float thrust = 1f;
     
 
     Rigidbody2D rb2d;
@@ -24,5 +27,11 @@ public class PlayerCharacters : MonoBehaviour
         float xMove = Input.GetAxisRaw(HorizontalInput);
         float yMove = Input.GetAxisRaw("Vertical");
         rb2d.velocity = new Vector2(xMove * speed, -1 * gravity);
+
+        if (Input.GetKeyDown(Jump))
+        {
+            Debug.Log("Jump");
+            rb2d.AddForce(transform.up * thrust, ForceMode2D.Impulse);
+        }
     }
 }
