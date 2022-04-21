@@ -22,16 +22,23 @@ public class PickupCrate : MonoBehaviour
         {
             transform.position = holdSpot.position;
             rb.velocity = new Vector2(playerRb.velocity.x, rb.velocity.y);
-        }
+
+            if (Input.GetKeyDown(KeyCode.P) && holdRef.GetComponent<HoldSpot>().isHolding == true)
+            {
+                holdRef.GetComponent<HoldSpot>().isHolding = false;
+                rb.AddForce(new Vector2(throwForce, 50f));
+            }
+            }
     }
 
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.P) && holdRef.GetComponent<HoldSpot>().isHolding == true)
+        /*if (Input.GetKeyDown(KeyCode.P) && holdRef.GetComponent<HoldSpot>().isHolding == true)
         {
             holdRef.GetComponent<HoldSpot>().isHolding = false;
             rb.AddForce(new Vector2(throwForce, 50f));
-        }
+        }*/
+       
     }
 
 
