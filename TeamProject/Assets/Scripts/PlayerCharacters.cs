@@ -6,14 +6,11 @@ public class PlayerCharacters : MonoBehaviour
 {
     public int speed;
     public int gravity;
+    public float jumpHeight;
 
     public string HorizontalInput;
-
     public KeyCode Jump;
-    private float thrust = 1f;
-    
-
-    Rigidbody2D rb2d;
+    public Rigidbody2D rb2d;
 
     // Start is called before the first frame update
     void Start()
@@ -22,16 +19,15 @@ public class PlayerCharacters : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         float xMove = Input.GetAxisRaw(HorizontalInput);
         float yMove = Input.GetAxisRaw("Vertical");
-        rb2d.velocity = new Vector2(xMove * speed, -1 * gravity);
+        rb2d.velocity = new Vector2(xMove * speed, rb2d.velocity.y);
 
         if (Input.GetKeyDown(Jump))
         {
-            Debug.Log("Jump");
-            rb2d.AddForce(transform.up * thrust, ForceMode2D.Impulse);
+            rb2d.AddForce(new Vector2(0f, jumpHeight));
         }
     }
 }

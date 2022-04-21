@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerArrows : PlayerCharacters
 {
 
-    
+    public override void Update()
+    {
+        base.Update();
+    }
 
 }
