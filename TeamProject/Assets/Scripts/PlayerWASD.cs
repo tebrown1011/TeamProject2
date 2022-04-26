@@ -17,7 +17,7 @@ public class PlayerWASD : PlayerCharacters
 
     public void FixedUpdate()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, 1f * Time.deltaTime, detect);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, 1f, detect);
 
         if (hit.collider == crateBox)
         {
