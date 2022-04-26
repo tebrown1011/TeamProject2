@@ -9,6 +9,7 @@ public class PickupCrate : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float throwForce;
     [SerializeField] private Rigidbody2D playerRb;
+    [SerializeField] private float holdBuffer;
 
     void Start()
     {
@@ -20,13 +21,17 @@ public class PickupCrate : MonoBehaviour
     {
         if (holdRef.GetComponent<HoldSpot>().isHolding == true)
         {
+            holdBuffer += 0.01f * Time.deltaTime;
             transform.position = holdSpot.position;
-            rb.velocity = new Vector2(playerRb.velocity.x, rb.velocity.y);
+            rb.velocity = new Vector2(playerRb.velocity.x,0f);
+            rb.isKinematic = true;
 
-            if (Input.GetKeyDown(KeyCode.P) && holdRef.GetComponent<HoldSpot>().isHolding == true)
+            if (Input.GetKeyDown(KeyCode.P) && holdRef.GetComponent<HoldSpot>().isHolding == true && holdBuffer >= 0.01f)
             {
+                rb.isKinematic = false;
                 holdRef.GetComponent<HoldSpot>().isHolding = false;
                 rb.AddForce(new Vector2(throwForce, 50f));
+                holdBuffer = 0f;
             }
             }
     }

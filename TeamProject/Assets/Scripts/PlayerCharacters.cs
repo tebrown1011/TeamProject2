@@ -27,7 +27,7 @@ public class PlayerCharacters : MonoBehaviour
         float yMove = Input.GetAxisRaw("Vertical");
         rb2d.velocity = new Vector2(xMove * speed, rb2d.velocity.y);
 
-        if(rb2d.velocity.y == 0)
+        if(rb2d.velocity.y <= 0)
         {
             IsGrounded = true;
         }
