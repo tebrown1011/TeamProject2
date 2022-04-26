@@ -12,6 +12,8 @@ public class PlayerCharacters : MonoBehaviour
     public KeyCode Jump;
     public Rigidbody2D rb2d;
 
+    private bool IsGrounded = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,9 +27,22 @@ public class PlayerCharacters : MonoBehaviour
         float yMove = Input.GetAxisRaw("Vertical");
         rb2d.velocity = new Vector2(xMove * speed, rb2d.velocity.y);
 
+        if(rb2d.velocity.y == 0)
+        {
+            IsGrounded = true;
+        }
+        else
+        {
+            IsGrounded = false;
+        }
+
         if (Input.GetKeyDown(Jump))
         {
-            rb2d.AddForce(new Vector2(0f, jumpHeight));
+            if(IsGrounded == true)
+            {
+                rb2d.AddForce(new Vector2(0f, jumpHeight));
+            }
+            
         }
     }
 }
