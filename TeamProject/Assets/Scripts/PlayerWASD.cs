@@ -13,25 +13,15 @@ public class PlayerWASD : PlayerCharacters
     public override void Update()
     {
         base.Update();
-       /* RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, 1f, detect);
-
-        if(hit.collider == crateBox)
-        {
-            Debug.Log("yooooo");
-            rb2d.velocity = new Vector2(rb2d.velocity.x + crateRb.velocity.x, crateRb.velocity.y);
-        }
-       */
-        
-        
     }
 
     public void FixedUpdate()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, 1f, detect);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, 1f * Time.deltaTime, detect);
 
         if (hit.collider == crateBox)
         {
-            Debug.Log("yooooo");
+            Debug.Log("on crate");
             rb2d.velocity = new Vector2(rb2d.velocity.x + crateRb.velocity.x, rb2d.velocity.x + crateRb.velocity.y);
         }
 
