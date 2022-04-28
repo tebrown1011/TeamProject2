@@ -488,8 +488,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 678214610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.3508, y: -2.57, z: 0}
-  m_LocalScale: {x: 34.401375, y: 1, z: 1}
+  m_LocalPosition: {x: -2.743, y: -2.57, z: 0}
+  m_LocalScale: {x: 37.617016, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -1037,7 +1037,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1898741395}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 9.81, y: -0.3, z: 0}
+  m_LocalPosition: {x: 8.02, y: -0.3, z: 0}
   m_LocalScale: {x: 9.6997385, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1182,12 +1182,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 771476958}
     - target: {fileID: 700359919056532240, guid: b5fafe9f15e84164e9166b46e19b57c0, type: 3}
+      propertyPath: rayDist
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 700359919056532240, guid: b5fafe9f15e84164e9166b46e19b57c0, type: 3}
       propertyPath: crateBox
       value: 
       objectReference: {fileID: 771476959}
     - target: {fileID: 700359919056532241, guid: b5fafe9f15e84164e9166b46e19b57c0, type: 3}
       propertyPath: m_Name
       value: PlayerAir
+      objectReference: {fileID: 0}
+    - target: {fileID: 700359919056532243, guid: b5fafe9f15e84164e9166b46e19b57c0, type: 3}
+      propertyPath: m_GravityScale
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5fafe9f15e84164e9166b46e19b57c0, type: 3}

@@ -20,9 +20,19 @@ public class PlayerWASD : PlayerCharacters
         {
             Debug.Log("on crate");
             rb2d.velocity = new Vector2(rb2d.velocity.x + crateRb.velocity.x, crateRb.velocity.y);
-            if (Input.GetKey(KeyCode.W) && hit)
+            rb2d.gravityScale = 1f;
+        }
+        else
+        {
+            rb2d.gravityScale = 0.9f;
+        }
+
+        if (Input.GetKey(KeyCode.W) && hit)
+        {
+            rb2d.AddForce(new Vector2(0f, -crateRb.velocity.y + jumpHeight/300));
+            if (crateRb.velocity.y <= 0f)
             {
-                rb2d.AddForce(new Vector2(0f, jumpHeight/400f));
+
             }
         }
 
