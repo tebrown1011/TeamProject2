@@ -9,21 +9,27 @@ public class PlayerWASD : PlayerCharacters
     [SerializeField] private Collider2D playerBox;
 
     [SerializeField] private Rigidbody2D crateRb;
-    public LayerMask detect;
+    public LayerMask onCrate;
     public override void Update()
+
     {
         base.Update();
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, 0.85f, onCrate);
+
+        if (hit)
+        {
+            Debug.Log("on crate");
+            rb2d.velocity = new Vector2(rb2d.velocity.x + crateRb.velocity.x, crateRb.velocity.y);
+            if (Input.GetKey(KeyCode.W) && hit)
+            {
+                rb2d.AddForce(new Vector2(0f, jumpHeight/400f));
+            }
+        }
+
     }
 
     public void FixedUpdate()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, 1f, detect);
-
-        if (hit.collider == crateBox)
-        {
-            Debug.Log("on crate");
-            //rb2d.velocity = new Vector2(rb2d.velocity.x + crateRb.velocity.x, rb2d.velocity.x + crateRb.velocity.y);
-        }
-
+        
     }
 }

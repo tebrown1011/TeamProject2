@@ -4,56 +4,54 @@ using UnityEngine;
 
 public class PickupCrate : MonoBehaviour
 {
-    [SerializeField] private Transform holdSpot;
-    [SerializeField] private GameObject holdRef;
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float throwForce;
-    [SerializeField] private Rigidbody2D playerRb;
-    [SerializeField] private float holdBuffer;
+    [SerializeField] private Collider2D crateCol;
+    [SerializeField] private Collider2D pickupCol;
+    [SerializeField] private Collider2D holdCol;
 
+    [SerializeField] private Rigidbody2D holdSpot;
+    [SerializeField] private Rigidbody2D playerEarth;
+
+    [SerializeField] private GameObject holdRef;
+    [SerializeField] private GameObject crate;
+
+    [SerializeField] private float throwForce;
+    [SerializeField] private float holdBuffer;
     void Start()
     {
-        
+       
     }
 
     
     void Update()
     {
-        if (holdRef.GetComponent<HoldSpot>().isHolding == true)
-        {
-            holdBuffer += 0.01f * Time.deltaTime;
-            transform.position = holdSpot.position;
-            rb.velocity = new Vector2(playerRb.velocity.x,0f);
-            rb.isKinematic = true;
+        Rigidbody2D rb = this.gameObject.GetComponent<Rigidbody2D>();
 
-            if (Input.GetKeyDown(KeyCode.P) && holdRef.GetComponent<HoldSpot>().isHolding == true && holdBuffer >= 0.01f)
+        if (crateCol.IsTouching(pickupCol) && Input.GetKeyDown(KeyCode.P))
+        {
+            holdRef.GetComponent<HoldSpot>().isHolding = true;
+            this.transform.position = holdSpot.transform.position;
+        }
+
+
+        if (holdRef.GetComponent<HoldSpot>().isHolding == true && crateCol.IsTouching(holdCol))
+        {
+            this.transform.position = holdSpot.transform.position;
+            rb.velocity = new Vector2(playerEarth.velocity.x, 0f);
+
+            if (Input.GetKeyDown(KeyCode.P))
             {
-                rb.isKinematic = false;
                 holdRef.GetComponent<HoldSpot>().isHolding = false;
-                rb.AddForce(new Vector2(throwForce, 50f));
-                holdBuffer = 0f;
+                this.GetComponent<Rigidbody2D>().AddForce(new Vector2(throwForce, 500f));
             }
-            }
+        }
+
     }
 
     private void FixedUpdate()
     {
-        /*if (Input.GetKeyDown(KeyCode.P) && holdRef.GetComponent<HoldSpot>().isHolding == true)
-        {
-            holdRef.GetComponent<HoldSpot>().isHolding = false;
-            rb.AddForce(new Vector2(throwForce, 50f));
-        }*/
-       
+        
     }
 
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Pickup" && Input.GetKey(KeyCode.P))
-        {
-            transform.position = holdSpot.position;
-            holdRef.GetComponent<HoldSpot>().isHolding = true;
-            Debug.Log("pick up");
-        }
-    }
+    
 }
