@@ -27,7 +27,7 @@ public class PlayerCharacters : MonoBehaviour
         float yMove = Input.GetAxisRaw("Vertical");
         rb2d.velocity = new Vector2(xMove * speed, rb2d.velocity.y);
 
-        if(rb2d.velocity.y <= 0)
+        /*if(rb2d.velocity.y <= 0)
         {
             IsGrounded = true;
         }
@@ -35,6 +35,7 @@ public class PlayerCharacters : MonoBehaviour
         {
             IsGrounded = false;
         }
+        */
 
         if (Input.GetKeyDown(Jump))
         {
@@ -44,5 +45,15 @@ public class PlayerCharacters : MonoBehaviour
             }
             
         }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        IsGrounded = true;
+    }
+
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        IsGrounded = false;
     }
 }

@@ -22,7 +22,7 @@ public class PlayerWASD : PlayerCharacters
         if (hit.collider == crateBox)
         {
             Debug.Log("on crate");
-            rb2d.velocity = new Vector2(rb2d.velocity.x + crateRb.velocity.x, rb2d.velocity.x + crateRb.velocity.y);
+            //rb2d.velocity = new Vector2(rb2d.velocity.x + crateRb.velocity.x, rb2d.velocity.x + crateRb.velocity.y);
         }
 
     }
