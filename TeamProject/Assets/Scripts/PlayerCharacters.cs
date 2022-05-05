@@ -10,7 +10,13 @@ public class PlayerCharacters : MonoBehaviour
 
     public string HorizontalInput;
     public KeyCode Jump;
+    public KeyCode Left;
+    public KeyCode Right;
     public Rigidbody2D rb2d;
+
+    public SpriteRenderer playerSprite;
+
+    public Animator ani;
 
     private bool IsGrounded = true;
 
@@ -45,15 +51,36 @@ public class PlayerCharacters : MonoBehaviour
             }
             
         }
+
+        if (Input.GetKeyDown(Left))
+        {
+            playerSprite.flipX = true;
+        } 
+        else if (Input.GetKeyDown(Right))
+        {
+            playerSprite.flipX = false;
+        }
+
+        if (Input.GetKey(Left) || Input.GetKey(Right))
+        {
+            ani.SetBool("isRunning", true);
+        }
+        else
+        {
+            ani.SetBool("isRunning", false);
+        }
+
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
         IsGrounded = true;
+        ani.SetBool("isGrounded", true);
     }
 
     public void OnCollisionExit2D(Collision2D collision)
     {
         IsGrounded = false;
+        ani.SetBool("isGrounded", false);
     }
 }

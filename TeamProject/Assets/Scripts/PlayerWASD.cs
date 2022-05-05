@@ -4,22 +4,32 @@ using UnityEngine;
 
 public class PlayerWASD : PlayerCharacters
 {
-
-    [SerializeField] private Collider2D crateBox;
-    [SerializeField] private Collider2D playerBox;
-
-    [SerializeField] private Rigidbody2D crateRb;
     public LayerMask onCrate;
+    public Collider2D col;
     public override void Update()
 
     {
         base.Update();
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, 0.85f, onCrate);
+        if (Input.GetKey(Left))
+        {
+            col.offset = new Vector2(-0.1f, 0f);
+        }
+
+        if (Input.GetKey(Right))
+        {
+            col.offset = new Vector2(0.1f, 0f);
+        }
+
+        
+
+
+
+        RaycastHit2D hit = Physics2D.Raycast(new Vector3(transform.position.x + 0.1f, transform.position.y, 0f), Vector3.down, 1.05f, onCrate);
 
         if (hit)
         {
             Debug.Log("on crate");
-            rb2d.velocity = new Vector2(rb2d.velocity.x + crateRb.velocity.x, crateRb.velocity.y);
+            rb2d.velocity = new Vector2(rb2d.velocity.x + hit.rigidbody.velocity.x +0.1f, rb2d.velocity.y);
             rb2d.gravityScale = 1f;
         }
         else
@@ -29,11 +39,7 @@ public class PlayerWASD : PlayerCharacters
 
         if (Input.GetKey(KeyCode.W) && hit)
         {
-            rb2d.AddForce(new Vector2(0f, -crateRb.velocity.y + jumpHeight/300));
-            if (crateRb.velocity.y <= 0f)
-            {
-
-            }
+            rb2d.AddForce(new Vector2(0f, -hit.rigidbody.velocity.y + jumpHeight/50));
         }
 
     }

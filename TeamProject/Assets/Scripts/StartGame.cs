@@ -12,4 +12,14 @@ public class StartGame : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    public void ButtonLevel()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void CollectLevel()
+    {
+        SceneManager.LoadScene(2);
+    }
 }
