@@ -7,6 +7,7 @@ public class LevelsCompleted : MonoBehaviour
 {
     public bool buttonComplete;
     public bool collectComplete;
+    public bool finalComplete;
 
     public static LevelsCompleted original;
     private void Awake()

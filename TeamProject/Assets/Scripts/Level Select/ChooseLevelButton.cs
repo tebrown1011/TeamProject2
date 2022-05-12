@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class ChooseLevelButton : MonoBehaviour
 {
     public int nextLevel;
+    public Collider2D doorCol;
+    public Collider2D playerCol;
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void Update()
     {
-        if(collision.gameObject.tag == "Player" && Input.GetKey(KeyCode.Space))
+        if(doorCol.IsTouching(playerCol) && Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene(nextLevel);
         }

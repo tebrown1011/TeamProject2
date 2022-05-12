@@ -7,6 +7,7 @@ public class ShowComplete : MonoBehaviour
 {
     public Image doorButton;
     public Image doorCollect;
+    public Image doorFinal;
 
     public Color goal;
     void Update()
@@ -21,6 +22,11 @@ public class ShowComplete : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("LevelTrack").GetComponent<LevelsCompleted>().collectComplete == true)
         {
             doorCollect.color = goal;
+        }
+
+        if (GameObject.FindGameObjectWithTag("LevelTrack").GetComponent<LevelsCompleted>().finalComplete == true)
+        {
+            doorFinal.color = goal;
         }
     }
 }

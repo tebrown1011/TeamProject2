@@ -9,6 +9,7 @@ public class Goal : MonoBehaviour
 
     public bool ButtonGoal;
     public bool CollectGoal;
+    public bool FinalGoal;
     void Start()
     {
         
@@ -32,6 +33,12 @@ public class Goal : MonoBehaviour
         {
             SceneManager.LoadScene(nextLevel);
             GameObject.FindGameObjectWithTag("LevelTrack").GetComponent<LevelsCompleted>().collectComplete = true;
+        }
+
+        if (collision.gameObject.tag == "Player" && FinalGoal == true)
+        {
+            SceneManager.LoadScene(nextLevel);
+            GameObject.FindGameObjectWithTag("LevelTrack").GetComponent<LevelsCompleted>().finalComplete = true;
         }
     }
 }
