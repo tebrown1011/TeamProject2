@@ -8,6 +8,7 @@ public class ChooseLevelFinal : MonoBehaviour
     public Collider2D doorBox;
     public SpriteRenderer door;
     public Color unlocked;
+    public int nextLevel;
     void Update()
     {
         if (GameObject.FindGameObjectWithTag("LevelTrack").GetComponent<LevelsCompleted>().buttonComplete == true && GameObject.FindGameObjectWithTag("LevelTrack").GetComponent<LevelsCompleted>().collectComplete == true)
@@ -23,9 +24,10 @@ public class ChooseLevelFinal : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player" && Input.GetKey(KeyCode.Space))
         {
             Debug.Log("unlocked");
+            SceneManager.LoadScene(nextLevel);
         }
     }
 }

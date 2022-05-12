@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2652694393328344311}
   - component: {fileID: 2652694393328344305}
   - component: {fileID: 2652694393328344310}
+  - component: {fileID: 5596639525866118051}
   m_Layer: 0
   m_Name: SPIKES
   m_TagString: Untagged
@@ -136,3 +137,16 @@ PolygonCollider2D:
       - {x: 0.53333336, y: -0.53333336}
       - {x: 0.5303223, y: -0.47701636}
       - {x: 0.026084796, y: 0.5298737}
+--- !u!114 &5596639525866118051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2652694393328344309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfab028bd3d41d42a6ae0ed5495e5c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startOver: 0

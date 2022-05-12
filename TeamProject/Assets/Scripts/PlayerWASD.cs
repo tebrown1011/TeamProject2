@@ -20,8 +20,15 @@ public class PlayerWASD : PlayerCharacters
             col.offset = new Vector2(0.1f, 0f);
         }
 
-        
 
+        if (Input.GetKeyDown(Left))
+        {
+            playerSprite.flipX = true;
+        }
+        else if (Input.GetKeyDown(Right))
+        {
+            playerSprite.flipX = false;
+        }
 
 
         RaycastHit2D hit = Physics2D.CircleCast(transform.position, 0.5f, Vector2.down, 0.8f, onCrate);
@@ -31,15 +38,16 @@ public class PlayerWASD : PlayerCharacters
             Debug.Log("on crate");
             rb2d.velocity = new Vector2(rb2d.velocity.x + hit.rigidbody.velocity.x +0.1f, rb2d.velocity.y);
             rb2d.gravityScale = 1f;
+            ani.SetBool("isGrounded", true);
         }
         else
         {
             rb2d.gravityScale = 0.9f;
         }
 
-        if (Input.GetKey(KeyCode.W) && hit)
+        if (Input.GetKeyDown(KeyCode.W) && hit)
         {
-            rb2d.AddForce(new Vector2(0f, -hit.rigidbody.velocity.y + jumpHeight/50));
+            rb2d.AddForce(new Vector2(0f, jumpHeight - 50));
         }
 
     }

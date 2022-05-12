@@ -1089,6 +1089,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SPIKES (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5596639525866118051, guid: 52fb19646876ee243afefa0d034cc5c9, type: 3}
+      propertyPath: startOver
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52fb19646876ee243afefa0d034cc5c9, type: 3}
 --- !u!4 &1712155264 stripped
@@ -1389,6 +1393,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SPIKES
       objectReference: {fileID: 0}
+    - target: {fileID: 5596639525866118051, guid: 52fb19646876ee243afefa0d034cc5c9, type: 3}
+      propertyPath: startOver
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52fb19646876ee243afefa0d034cc5c9, type: 3}
 --- !u!1001 &4158062354114243203
@@ -1404,7 +1412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4158062353326524076, guid: 3d52846caa8b41547a82ad5402ede384, type: 3}
       propertyPath: nextLevel
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4158062353326524076, guid: 3d52846caa8b41547a82ad5402ede384, type: 3}
       propertyPath: CollectGoal

@@ -33,15 +33,17 @@ public class PlayerCharacters : MonoBehaviour
         float yMove = Input.GetAxisRaw("Vertical");
         rb2d.velocity = new Vector2(xMove * speed, rb2d.velocity.y);
 
-        /*if(rb2d.velocity.y <= 0)
+        if(rb2d.velocity.y == 0)
         {
             IsGrounded = true;
+            ani.SetBool("isGrounded", true);
         }
         else
         {
             IsGrounded = false;
+            ani.SetBool("isGrounded", false);
         }
-        */
+        
 
         if (Input.GetKeyDown(Jump))
         {
@@ -52,14 +54,6 @@ public class PlayerCharacters : MonoBehaviour
             
         }
 
-        if (Input.GetKeyDown(Left))
-        {
-            playerSprite.flipX = true;
-        } 
-        else if (Input.GetKeyDown(Right))
-        {
-            playerSprite.flipX = false;
-        }
 
         if (Input.GetKey(Left) || Input.GetKey(Right))
         {
@@ -72,7 +66,7 @@ public class PlayerCharacters : MonoBehaviour
 
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+   /* public void OnCollisionEnter2D(Collision2D collision)
     {
         IsGrounded = true;
         ani.SetBool("isGrounded", true);
@@ -82,5 +76,5 @@ public class PlayerCharacters : MonoBehaviour
     {
         IsGrounded = false;
         ani.SetBool("isGrounded", false);
-    }
+    }*/
 }

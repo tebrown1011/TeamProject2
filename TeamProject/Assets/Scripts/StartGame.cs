@@ -10,16 +10,6 @@ public class StartGame : MonoBehaviour
     // Update is called once per frame
     public void changeLevel()
     {
-        SceneManager.LoadScene(4);
-    }
-
-    public void ButtonLevel()
-    {
-        SceneManager.LoadScene(3);
-    }
-
-    public void CollectLevel()
-    {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 }
