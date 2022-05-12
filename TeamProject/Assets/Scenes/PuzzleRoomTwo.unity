@@ -1402,6 +1402,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goal
       objectReference: {fileID: 0}
+    - target: {fileID: 4158062353326524076, guid: 3d52846caa8b41547a82ad5402ede384, type: 3}
+      propertyPath: nextLevel
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4158062353326524076, guid: 3d52846caa8b41547a82ad5402ede384, type: 3}
+      propertyPath: CollectGoal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4158062353326524078, guid: 3d52846caa8b41547a82ad5402ede384, type: 3}
       propertyPath: m_RootOrder
       value: 7

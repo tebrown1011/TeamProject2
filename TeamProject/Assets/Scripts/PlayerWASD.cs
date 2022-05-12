@@ -24,7 +24,7 @@ public class PlayerWASD : PlayerCharacters
 
 
 
-        RaycastHit2D hit = Physics2D.Raycast(new Vector3(transform.position.x + 0.1f, transform.position.y, 0f), Vector3.down, 1.05f, onCrate);
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, 0.5f, Vector2.down, 0.8f, onCrate);
 
         if (hit)
         {

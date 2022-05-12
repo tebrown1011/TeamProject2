@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ButtonTest.unity
     guid: 1a06be955fffeae499beb77c05708f72
+  - enabled: 1
+    path: Assets/Scenes/HubWorld.unity
+    guid: ba317699abf0be243a5d48e7d243c9c8
   m_configObjects: {}

@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Hazard
+  - Pickup
+  - Tracker
+  - LevelTrack
   layers:
   - Default
   - TransparentFX
